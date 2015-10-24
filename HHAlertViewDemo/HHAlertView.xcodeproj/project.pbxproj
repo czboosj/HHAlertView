@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E5532FE01B31CCC0007E7DA3 /* UIView+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = E5532FDF1B31CCC0007E7DA3 /* UIView+Draw.m */; };
+		E5749A1D1BDB2E5200A1CC5D /* HHAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5749A181BDB2E5200A1CC5D /* HHAlertView.m */; };
+		E5749A1E1BDB2E5200A1CC5D /* UIView+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = E5749A1B1BDB2E5200A1CC5D /* UIView+Draw.m */; };
 		E5CE79F31A8CDBF60065833A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CE79F21A8CDBF60065833A /* main.m */; };
 		E5CE79F61A8CDBF60065833A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CE79F51A8CDBF60065833A /* AppDelegate.m */; };
 		E5CE79F91A8CDBF60065833A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CE79F81A8CDBF60065833A /* ViewController.m */; };
@@ -15,7 +16,6 @@
 		E5CE79FE1A8CDBF60065833A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5CE79FD1A8CDBF60065833A /* Images.xcassets */; };
 		E5CE7A011A8CDBF60065833A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CE79FF1A8CDBF60065833A /* LaunchScreen.xib */; };
 		E5CE7A0D1A8CDBF60065833A /* HHAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CE7A0C1A8CDBF60065833A /* HHAlertViewTests.m */; };
-		E5CE7A181A8CDC0B0065833A /* HHAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CE7A171A8CDC0B0065833A /* HHAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,9 +29,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E5532FDE1B31CCC0007E7DA3 /* UIView+Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Draw.h"; sourceTree = "<group>"; };
-		E5532FDF1B31CCC0007E7DA3 /* UIView+Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Draw.m"; sourceTree = "<group>"; };
-		E5532FE11B31CD78007E7DA3 /* HHAlertViewConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAlertViewConst.h; sourceTree = "<group>"; };
+		E5749A181BDB2E5200A1CC5D /* HHAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HHAlertView.m; path = class/HHAlertView.m; sourceTree = "<group>"; };
+		E5749A191BDB2E5200A1CC5D /* HHAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HHAlertView.h; path = class/HHAlertView.h; sourceTree = "<group>"; };
+		E5749A1A1BDB2E5200A1CC5D /* HHAlertViewConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HHAlertViewConst.h; path = class/HHAlertViewConst.h; sourceTree = "<group>"; };
+		E5749A1B1BDB2E5200A1CC5D /* UIView+Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Draw.m"; path = "class/UIView+Draw.m"; sourceTree = "<group>"; };
+		E5749A1C1BDB2E5200A1CC5D /* UIView+Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Draw.h"; path = "class/UIView+Draw.h"; sourceTree = "<group>"; };
 		E5CE79ED1A8CDBF60065833A /* HHAlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHAlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5CE79F11A8CDBF60065833A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5CE79F21A8CDBF60065833A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -45,8 +47,6 @@
 		E5CE7A061A8CDBF60065833A /* HHAlertViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HHAlertViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5CE7A0B1A8CDBF60065833A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5CE7A0C1A8CDBF60065833A /* HHAlertViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAlertViewTests.m; sourceTree = "<group>"; };
-		E5CE7A161A8CDC0B0065833A /* HHAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHAlertView.h; sourceTree = "<group>"; };
-		E5CE7A171A8CDC0B0065833A /* HHAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,11 +70,11 @@
 		E510D20B1B16A20A002BF7ED /* class */ = {
 			isa = PBXGroup;
 			children = (
-				E5CE7A161A8CDC0B0065833A /* HHAlertView.h */,
-				E5CE7A171A8CDC0B0065833A /* HHAlertView.m */,
-				E5532FDE1B31CCC0007E7DA3 /* UIView+Draw.h */,
-				E5532FDF1B31CCC0007E7DA3 /* UIView+Draw.m */,
-				E5532FE11B31CD78007E7DA3 /* HHAlertViewConst.h */,
+				E5749A181BDB2E5200A1CC5D /* HHAlertView.m */,
+				E5749A191BDB2E5200A1CC5D /* HHAlertView.h */,
+				E5749A1A1BDB2E5200A1CC5D /* HHAlertViewConst.h */,
+				E5749A1B1BDB2E5200A1CC5D /* UIView+Draw.m */,
+				E5749A1C1BDB2E5200A1CC5D /* UIView+Draw.h */,
 			);
 			name = class;
 			sourceTree = "<group>";
@@ -149,6 +149,7 @@
 				E5CE79E91A8CDBF60065833A /* Sources */,
 				E5CE79EA1A8CDBF60065833A /* Frameworks */,
 				E5CE79EB1A8CDBF60065833A /* Resources */,
+				E5749A171BDB2D8D00A1CC5D /* Cocoapods */,
 			);
 			buildRules = (
 			);
@@ -234,6 +235,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E5749A171BDB2D8D00A1CC5D /* Cocoapods */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Cocoapods;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -Rf HHAlertView/class/* ../HHAlertView";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E5CE79E91A8CDBF60065833A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -241,9 +259,9 @@
 			files = (
 				E5CE79F91A8CDBF60065833A /* ViewController.m in Sources */,
 				E5CE79F61A8CDBF60065833A /* AppDelegate.m in Sources */,
-				E5CE7A181A8CDC0B0065833A /* HHAlertView.m in Sources */,
 				E5CE79F31A8CDBF60065833A /* main.m in Sources */,
-				E5532FE01B31CCC0007E7DA3 /* UIView+Draw.m in Sources */,
+				E5749A1D1BDB2E5200A1CC5D /* HHAlertView.m in Sources */,
+				E5749A1E1BDB2E5200A1CC5D /* UIView+Draw.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

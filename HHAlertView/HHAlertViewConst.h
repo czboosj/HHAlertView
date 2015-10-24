@@ -11,14 +11,12 @@
 #ifndef HHAlertView_HHAlertViewConst_h
 #define HHAlertView_HHAlertViewConst_h
 
-static const CGFloat HHALERTVIEW_WIDTH = 260;
-static const CGFloat HHALERTVIEW_HEIGHT = 300;
-static const CGFloat HHALERTVIEW_PADDING = 10;
+static const CGFloat KHHAlertView_Width      = 260;
+static const CGFloat KHHAlertView_Height      = 300;
+static const CGFloat KHHAlertView_Padding     = 10;
 
-static const CGFloat LOGOVIEW_SIZE      = 60;
-static const CGFloat KlogoView_Margin_top      = 20;
-
-
+static const CGFloat KLogoView_Size           = 60;
+static const CGFloat KlogoView_Margin_top    = 20;
 
 static const CGFloat KDefaultRadius = 5.0;
 

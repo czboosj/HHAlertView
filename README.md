@@ -1,7 +1,7 @@
 # HHAlertView
 An iOS AlertView Library ,with Error,Success,Warning 
 
- ![image](https://raw.githubusercontent.com/mrchenhao/HHAlertView/master/gif/error.gif)
+ ![image](https://raw.githubusercontent.com/mrchenhao/HHAlertView/master/images/error.png)
  
  It's very esay to use HHAlertView
 
@@ -33,9 +33,9 @@ It's easy to use,enjoy it!
  
 ## demo
  
- ![image](https://raw.githubusercontent.com/mrchenhao/HHAlertView/master/gif/success.gif)
+ ![image](https://raw.githubusercontent.com/mrchenhao/HHAlertView/master/images/success.png
  
- ![image](https://raw.githubusercontent.com/mrchenhao/HHAlertView/master/gif/wraing.gif)
+ ![image](https://raw.githubusercontent.com/mrchenhao/HHAlertView/master/images/warning.png)
  
  
 ## Todo

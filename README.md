@@ -10,30 +10,38 @@ An iOS AlertView Library ,with Error,Success,Warning
 ### use pod
 
  ```
- pod 'HHAlertView', '~> 0.0.3'
+ pod 'HHAlertView', '~> 0.1.0'
  
  ```
  
 ## How to use
  
  ```
- [[HHAlertView shared] showAlertWithStyle:HHAlertStyleOk inView:self.view Title:@"Success" detail:@"You are successful!" cancelButton:nil Okbutton:@"Sure"];
+ HHAlertView *alertview = [[HHAlertView alloc] initWithTitle:@"成功" detailText:@"恭喜你，操作顺利的实行了！\n换个行试试看效果" cancelButtonTitle:nil otherButtonTitles:@[@"确定"]];
+ [alertview setEnterMode:HHAlertEnterModeTop];
+ [alertview setLeaveMode:HHAlertLeaveModeBottom];
+ [alertview showWithBlock:^(NSInteger index) {
+    NSLog(@"%ld",index);
+ }];
  
  ```
  
  there are three styles
  
  ```
- HHAlertStyleOk
- HHAlertStyleError
- HHAlertStyleWarning
+ HHAlertViewModeSuccess,
+ HHAlertViewModeError,
+ HHAlertViewModeWarning,
+ HHAlertViewModeInfo,
+ HHAlertViewModeDefault,
+ HHAlertViewModeCustom
  ```
  
 It's easy to use,enjoy it!
  
 ## demo
  
- ![image](https://raw.githubusercontent.com/mrchenhao/HHAlertView/master/images/success.png
+ ![image](https://raw.githubusercontent.com/mrchenhao/HHAlertView/master/images/success.png)
  
  ![image](https://raw.githubusercontent.com/mrchenhao/HHAlertView/master/images/warning.png)
  

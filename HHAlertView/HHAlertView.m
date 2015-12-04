@@ -291,7 +291,7 @@
                 break;
             case HHAlertEnterModeLeft:
             {
-                frame.origin.y -= CGRectGetWidth([[UIScreen mainScreen] bounds]);
+                frame.origin.x -= CGRectGetWidth([[UIScreen mainScreen] bounds]);
                 interval = 0.5;
             }
                 break;

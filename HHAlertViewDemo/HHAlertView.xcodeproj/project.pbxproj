@@ -70,11 +70,11 @@
 		E510D20B1B16A20A002BF7ED /* class */ = {
 			isa = PBXGroup;
 			children = (
-				E5749A181BDB2E5200A1CC5D /* HHAlertView.m */,
 				E5749A191BDB2E5200A1CC5D /* HHAlertView.h */,
-				E5749A1A1BDB2E5200A1CC5D /* HHAlertViewConst.h */,
-				E5749A1B1BDB2E5200A1CC5D /* UIView+Draw.m */,
+				E5749A181BDB2E5200A1CC5D /* HHAlertView.m */,
 				E5749A1C1BDB2E5200A1CC5D /* UIView+Draw.h */,
+				E5749A1B1BDB2E5200A1CC5D /* UIView+Draw.m */,
+				E5749A1A1BDB2E5200A1CC5D /* HHAlertViewConst.h */,
 			);
 			name = class;
 			sourceTree = "<group>";

@@ -22,7 +22,7 @@
 
 - (IBAction)success:(id)sender {
    HHAlertView *alertview = [[HHAlertView alloc] initWithTitle:@"成功" detailText:@"恭喜你，操作顺利的实行了！\n换个行试试看效果" cancelButtonTitle:nil otherButtonTitles:@[@"确定"]];
-    [alertview setEnterMode:HHAlertEnterModeTop];
+    [alertview setEnterMode:HHAlertEnterModeLeft];
     [alertview setLeaveMode:HHAlertLeaveModeBottom];
     [alertview showWithBlock:^(NSInteger index) {
         NSLog(@"%ld",index);

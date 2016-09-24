@@ -11,10 +11,15 @@
 #ifndef HHAlertView_HHAlertViewConst_h
 #define HHAlertView_HHAlertViewConst_h
 
-static const CGFloat KHHAlertView_Width      = 260;
+static const CGFloat KHHAlertView_Width      = 280;
+/**
+ *  默认的数据, 但是会自动去计算宽高的
+ */
 static const CGFloat KHHAlertView_Height      = 300;
 static const CGFloat KHHAlertView_Padding     = 10;
-
+/**
+ *  logo 的大小, 自定义的话 得按照自定义的view 的大小不用这个
+ */
 static const CGFloat KLogoView_Size           = 60;
 static const CGFloat KlogoView_Margin_top    = 20;
 

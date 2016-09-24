@@ -9,7 +9,9 @@
 #import "UIView+Draw.h"
 
 @implementation UIView (Draw)
-
+/**
+ *  绘图,绘制 对勾
+ */
 - (void)hh_drawCheckmark
 {
     [self cleanLayer:self];
@@ -34,7 +36,9 @@
     [self.layer addSublayer:layer];
     
 }
-
+/**
+ *  绘图 绘制 警告
+ */
 - (void)hh_drawCheckWarning
 {
     [self cleanLayer:self];
@@ -58,7 +62,9 @@
     [self.layer addSublayer:layer];
     
 }
-
+/**
+ *  绘图,绘制 error
+ */
 - (void)hh_drawCheckError
 {
     [self cleanLayer:self];
@@ -85,14 +91,22 @@
     
     [self.layer addSublayer:layer];
 }
-
+/**
+ *  绘图 清理绘制 添加 view
+ *
+ *  @param customView customView 自定义view
+ */
 - (void)hh_drawCustomeView:(UIView *)customView
 {
     [self cleanLayer:self];
     customView.frame = self.frame;
     [self addSubview:customView];
 }
-
+/**
+ *  清理layer 
+ *
+ *  @param view <#view description#>
+ */
 - (void)cleanLayer:(UIView *)view
 {
     for (CALayer *layer in view.layer.sublayers) {

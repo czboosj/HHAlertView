@@ -7,12 +7,7 @@ An iOS AlertView Library ,with Error,Success,Warning
 
 ##setup
 
-### use pod
 
- ```
- pod 'HHAlertView', '~> 0.1.0'
- 
- ```
  
 ## How to use
  
@@ -46,8 +41,5 @@ It's easy to use,enjoy it!
  ![image](https://raw.githubusercontent.com/mrchenhao/HHAlertView/master/images/warning.png)
  
  
-## Todo
+图文 都是原作者的, 觉得达不到自己的需求, 自己更改了, 自定义显示2 和 修改自适应大小, 文本和按钮的位置等等,  类型2  是把自定义view 放到标题下面 , 自定义View 大小 如果太大会自动缩小,不固定自定义View 的大小,以后有时间在改改
 
-* custom the way to come 
- 
-Email:harrieschen@gmail.com

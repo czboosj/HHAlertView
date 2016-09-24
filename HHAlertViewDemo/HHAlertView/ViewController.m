@@ -29,11 +29,13 @@
     }];
 }
 - (IBAction)wraing:(id)sender {
+    
     HHAlertView *alertview = [[HHAlertView alloc] initWithTitle:@"警告" detailText:@"这可能导致你的iPhone出大事噢，确定要这样做嘛?" cancelButtonTitle:@"取消" otherButtonTitles:nil];
     alertview.mode = HHAlertViewModeWarning;
     [alertview setEnterMode:HHAlertEnterModeBottom];
     [alertview setDelegate:self];
     [alertview show];
+    
     
 }
 - (IBAction)error:(id)sender {
@@ -43,10 +45,14 @@
   
 }
 - (IBAction)custom:(id)sender {
-    HHAlertView *alertview = [[HHAlertView alloc] initWithTitle:@"自定义View" detailText:@"这是一个自定义的view的样子?" cancelButtonTitle:@"噢" otherButtonTitles:@[@"哦？",@"咦？",@"咦？"]];
-    alertview.mode = HHAlertViewModeCustom;
-    [alertview setCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ff"]]];
+    HHAlertView *alertview = [[HHAlertView alloc] initWithTitle:@"怎样加入舞队" detailText:@"这是一个自定义的view的样子?这是一个自定义的view的样子?这是一个自定义的view的样子?" cancelButtonTitle:@"噢" otherButtonTitles:@[@"哦？",@"咦？",@"咦？"]];
+    alertview.mode = HHAlertViewModeCustom2;
+    [alertview setCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ceshi"]]];
     [alertview show];
+//    HHAlertView *alertview = [[HHAlertView alloc] initWithTitle:@"怎样加入舞队" detailText:@"这是一个自定义的view的样子?这是一个自定义的view的样子?这是一个自定义的view的样子?" cancelButtonTitle:@"噢" otherButtonTitles:nil];
+//    alertview.mode = HHAlertViewModeCustom;
+//    [alertview setCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ff"]]];
+//    [alertview show];
     
 }
 

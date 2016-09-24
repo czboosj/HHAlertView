@@ -21,7 +21,11 @@ typedef NS_ENUM(NSInteger, HHAlertViewMode){
     HHAlertViewModeWarning,
     HHAlertViewModeInfo,
     HHAlertViewModeDefault,
-    HHAlertViewModeCustom
+    HHAlertViewModeCustom,
+    /**
+     *  自定义样式 2 自定义View 在标题的下面
+     */
+    HHAlertViewModeCustom2
 };
 
 typedef NS_ENUM(NSInteger, HHAlertEnterMode){
@@ -125,7 +129,7 @@ typedef void (^selectButtonIndexComplete)(NSInteger index);
 
 /**
  * The UIView (e.g., a UIImageView) to be shown when the AlertView is in HHAlertViewModeCustom.
- * For best results use a 60 by 60 pixel view.
+ * 应该自定义大小, 最好是宽小于 等于 280 mianAlertView
  *
  */
 @property (nonatomic, strong) UIView *customView;
@@ -152,6 +156,7 @@ typedef void (^selectButtonIndexComplete)(NSInteger index);
  * set to nil if have no cancel buttons.
  */
 @property (nonatomic, copy)   NSString  *cancelButtonTitle;
+
 
 /**
  *  An array of String of button's title

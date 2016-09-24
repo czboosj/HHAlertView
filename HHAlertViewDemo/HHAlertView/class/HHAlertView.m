@@ -16,6 +16,9 @@
 @interface HHAlertView()
 
 @property (nonatomic, strong) UILabel  *titleLabel;
+/**
+ *  详情数据 14 号字体多行
+ */
 @property (nonatomic, strong) UILabel  *detailLabel;
 @property (nonatomic, strong) UIButton *cancelButton;
 @property (nonatomic, strong) NSArray  *otherButtons;
@@ -24,6 +27,11 @@
 @property (nonatomic, strong) UIView   *maskView;
 @property (nonatomic, strong) UIView   *mainAlertView; //main alert view
 
+/**
+ *  高度
+ * default value 300
+ */
+@property (nonatomic, assign)  CGFloat alertView_Height;
 @end
 
 
@@ -36,6 +44,7 @@
         self.xOffset = 0.0;
         self.yOffset = 0.0;
         self.radius  = KDefaultRadius;
+        
         self.mode = HHAlertViewModeDefault;
         self.alpha   = 0.0;
         self.removeFromSuperViewOnHide = YES;
@@ -50,7 +59,7 @@
                    detailText:(NSString *)detailtext
             cancelButtonTitle:(NSString *)cancelButtonTitle
             otherButtonTitles:(NSArray *)otherButtonsTitles {
-    
+    self.alertView_Height = KHHAlertView_Height;
     self = [self initWithFrame:[[UIScreen mainScreen] bounds]];
     if (self) {
         self.titleText = title;
@@ -100,19 +109,48 @@
             [button setBackgroundColor:ERROR_COLOR];
         }
     }
-    if(self.mode == HHAlertViewModeCustom){
     
+
+    
+    if(self.mode == HHAlertViewModeCustom){
+        
         if (self.customView) {
+            CGFloat frame_W = CGRectGetWidth(self.customView.bounds) > KHHAlertView_Width ? KHHAlertView_Width:CGRectGetWidth(self.customView.bounds);
+            CGFloat frame_H = frame_W * (CGRectGetHeight(self.customView.bounds)/CGRectGetWidth(self.customView.bounds));
+            
+            [self.logoView setFrame:CGRectMake(0, 0, frame_W, frame_H)];
+
             [self.logoView hh_drawCustomeView:self.customView];
             
         }
-        [self.cancelButton setTitleColor:SUCCESS_COLOR forState:UIControlStateNormal];
         [[self.cancelButton layer] setBorderColor:SUCCESS_COLOR.CGColor];
         for (UIButton *button in self.otherButtons) {
             [button setBackgroundColor:SUCCESS_COLOR];
         }
         
     }
+    if (self.mode == HHAlertViewModeCustom2){
+        
+        if (self.customView) {
+              CGFloat frame_W = CGRectGetWidth(self.customView.bounds) > KHHAlertView_Width ? KHHAlertView_Width:CGRectGetWidth(self.customView.bounds);
+            CGFloat frame_H = frame_W * (CGRectGetHeight(self.customView.bounds)/CGRectGetWidth(self.customView.bounds));
+            
+            [self.logoView setFrame:CGRectMake(0, 0, frame_W, frame_H)];
+            [self.logoView hh_drawCustomeView:self.customView];
+            
+        }
+        // 都是空白 黑色字
+        [self.cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        //[[self.cancelButton layer] setBorderWidth:0.0];
+        //[[self.cancelButton layer] setBorderColor:[UIColor blackColor].CGColor];
+        for (UIButton *button in self.otherButtons) {
+            [[button layer] setBorderWidth:0.0];
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            //[button setBackgroundColor:SUCCESS_COLOR];
+        }
+    }
+
+    
 }
 
 - (void)setupLabel {
@@ -130,6 +168,8 @@
     }
     
     if (self.cancelButtonTitle != nil) {
+   
+        
         self.cancelButton = [[UIButton alloc] init];
         [self.cancelButton setTitle:self.cancelButtonTitle forState:UIControlStateNormal];
         [self.cancelButton setTag:KbuttonTag];
@@ -137,6 +177,7 @@
         [[self.cancelButton layer] setCornerRadius:4.0];
         [[self.cancelButton layer] setBorderWidth:1.0];
         [self.mainAlertView addSubview:self.cancelButton];
+
     }
     
     if (self.otherButtonTitles != nil) {
@@ -173,30 +214,48 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+
     
+ 
+    // mark 这里对frame 位置做了调整
     [self.mainAlertView setBackgroundColor:[UIColor whiteColor]];
     [[self.mainAlertView layer] setCornerRadius:self.radius];
-    
-    //logoView frame
-    CGPoint logoCenter =  CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, KlogoView_Margin_top+KLogoView_Size/2);
-    [self.logoView setCenter:logoCenter];
-    
-    //titleLabel frame
-    CGPoint titleCenter = CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, 20+CGRectGetHeight(self.titleLabel.frame)/2 + CGRectGetMaxY(self.logoView.frame));
-    [self.titleLabel setCenter:titleCenter];
+    [self.mainAlertView setCenter:self.center];
+
+    CGRect secondFrame = CGRectZero;
+    if (self.mode == HHAlertViewModeCustom2){
+        CGPoint titleCenter = CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, KlogoView_Margin_top+CGRectGetHeight(self.titleLabel.frame)/2);
+        [self.titleLabel setCenter:titleCenter];
+        
+        CGPoint logoCenter = CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, 20+CGRectGetHeight(self.logoView.frame)/2 + CGRectGetMaxY(self.titleLabel.frame));
+        [self.logoView setCenter:logoCenter];
+        secondFrame = self.logoView.frame ;
+    }else{
+        //logoView frame
+        CGPoint logoCenter =  CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, KlogoView_Margin_top+CGRectGetHeight(self.logoView.frame)/2);
+        
+        [self.logoView setCenter:logoCenter];
+        
+        //titleLabel frame
+        CGPoint titleCenter = CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, 20+CGRectGetHeight(self.titleLabel.frame)/2 + CGRectGetMaxY(self.logoView.frame));
+        [self.titleLabel setCenter:titleCenter];
+        secondFrame = self.titleLabel.frame;
+    }
+  
     
     //detailLabel frame
     [self.detailLabel setFrame:CGRectMake(0, 0, CGRectGetWidth(self.mainAlertView.frame)-KHHAlertView_Padding*2, 0)];
     [self.detailLabel sizeToFit];
     
-    CGPoint detailCenter = CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, 10+CGRectGetHeight(self.detailLabel.frame)/2 + CGRectGetMaxY(self.titleLabel.frame));
+
+    CGPoint detailCenter = CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, 10+CGRectGetHeight(self.detailLabel.frame)/2 + CGRectGetMaxY(secondFrame));
     [self.detailLabel setCenter:detailCenter];
     
     if (self.cancelButtonTitle != nil && self.otherButtonTitles ==nil){
         CGRect buttonFrame = CGRectMake(0, 0, KHHAlertView_Width - KHHAlertView_Padding *2, 40);
         [self.cancelButton setFrame:buttonFrame];
         
-        CGPoint buttonCenter = CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, KHHAlertView_Height - KHHAlertView_Padding - 20);
+        CGPoint buttonCenter = CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, _alertView_Height - KHHAlertView_Padding - 20);
         [self.cancelButton setCenter:buttonCenter];
     }
     
@@ -204,18 +263,18 @@
         CGRect buttonFrame = CGRectMake(0, 0, (KHHAlertView_Width - KHHAlertView_Padding *3)/2, 40);
         [self.cancelButton setFrame:buttonFrame];
         
-        CGPoint leftButtonCenter = CGPointMake(CGRectGetWidth(self.cancelButton.frame)/2 + KHHAlertView_Padding, KHHAlertView_Height - KHHAlertView_Padding - 20);
+        CGPoint leftButtonCenter = CGPointMake(CGRectGetWidth(self.cancelButton.frame)/2 + KHHAlertView_Padding, self.alertView_Height - KHHAlertView_Padding - 20);
         [self.cancelButton setCenter:leftButtonCenter];
         
         UIButton *rightButton = (UIButton *)self.otherButtons[0];
         [rightButton setFrame:buttonFrame];
         
-        CGPoint rightButtonCenter = CGPointMake(KHHAlertView_Width - CGRectGetWidth(rightButton.frame)/2 - KHHAlertView_Padding, KHHAlertView_Height - KHHAlertView_Padding - 20);
+        CGPoint rightButtonCenter = CGPointMake(KHHAlertView_Width - CGRectGetWidth(rightButton.frame)/2 - KHHAlertView_Padding, _alertView_Height - KHHAlertView_Padding - 20);
         [rightButton setCenter:rightButtonCenter];
         
     }
     if (self.cancelButtonTitle != nil && [self.otherButtonTitles count]>1) {
-        
+        // mark 很多button 自定义高度
         CGRect buttonFrame = CGRectMake(0, 0, KHHAlertView_Width - KHHAlertView_Padding *2, 40);
         
         for (NSInteger i = self.otherButtons.count-1; i>=0; i--) {
@@ -233,15 +292,26 @@
         
         NSLog(@"%f",CGRectGetMaxY(self.detailLabel.frame));
         //adjust
-        if ((50 * (self.otherButtons.count+1) + CGRectGetMaxY(self.detailLabel.frame))>CGRectGetHeight(self.mainAlertView.frame)) {
+        self.alertView_Height = (50 * (self.otherButtons.count+1) + CGRectGetMaxY(self.detailLabel.frame)) + 10;
+        if (self.alertView_Height != CGRectGetHeight(self.mainAlertView.frame)) {
             
             CGRect frame = self.mainAlertView.frame;
-            frame.size.height = 50 * (self.otherButtons.count+1) + CGRectGetMaxY(self.detailLabel.frame);
+            frame.size.height = self.alertView_Height;
             self.mainAlertView.frame = frame;
             [self setNeedsLayout];
             
         }
         
+    }else{
+        // mark 正常一行butn 计算文本高度
+        self.alertView_Height = (50  + CGRectGetMaxY(self.detailLabel.frame)) + 10;
+
+        if (CGRectGetHeight(self.mainAlertView.frame) != self.alertView_Height){
+            CGRect mainFrame = self.mainAlertView.frame;
+            mainFrame.size.height = self.alertView_Height;
+            self.mainAlertView.frame = mainFrame;
+            [self setNeedsLayout];// 每次执行这个 都会重新执行这个函数
+        }
     }
     if (self.cancelButtonTitle == nil && [self.otherButtonTitles count]==1) {
 
@@ -249,7 +319,7 @@
         CGRect buttonFrame = CGRectMake(0, 0, KHHAlertView_Width - KHHAlertView_Padding *2, 40);
         [rightButton setFrame:buttonFrame];
         
-        CGPoint buttonCenter = CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, KHHAlertView_Height - KHHAlertView_Padding - 20);
+        CGPoint buttonCenter = CGPointMake(CGRectGetWidth(self.mainAlertView.frame)/2, _alertView_Height - KHHAlertView_Padding - 20);
         [rightButton setCenter:buttonCenter];
         
     }
@@ -271,7 +341,9 @@
 
 
 #pragma mark show & hide 
-
+/**
+ *  弹出 自定义alert
+ */
 - (void)show {
     NSTimeInterval interval = 0.3;
     CGRect frame = self.mainAlertView.frame;
@@ -324,7 +396,9 @@
     self.completeBlock = completeBlock;
     [self show];
 }
-
+/**
+ *  隐藏显示 的 内容
+ */
 - (void)hide {
     NSTimeInterval interval = 0.3;
     CGRect frame = self.mainAlertView.frame;
@@ -373,9 +447,14 @@
             [self removeFromSuperview];
         }
         [self unregisterKVC];
+        
     }];
 }
 
+- (void)dealloc
+{
+    
+}
 #pragma mark KVC
 
 - (void)registerKVC {
@@ -383,7 +462,9 @@
         [self addObserver:self forKeyPath:keypath options:NSKeyValueObservingOptionNew context:nil];
     }
 }
-
+/**
+ *  移除kvc
+ */
 - (void)unregisterKVC {
     for (NSString *keypath in [self observableKeypaths]) {
         [self removeObserver:self forKeyPath:keypath];
@@ -413,7 +494,11 @@
 }
 
 #pragma mark getter and setter
-
+/**
+ *  遮盖层 黑色 alpha0.2
+ *
+ *  @return <#return value description#>
+ */
 - (UIView *)maskView {
     if (!_maskView) {
         _maskView = [[UIView alloc] initWithFrame:self.bounds];
@@ -422,10 +507,14 @@
     }
     return _maskView;
 }
-
+/**
+ *  居中的主要显示alert 的view
+ *
+ *  @return <#return value description#>
+ */
 - (UIView *)mainAlertView {
     if (!_mainAlertView) {
-        _mainAlertView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KHHAlertView_Width, KHHAlertView_Height)];
+        _mainAlertView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KHHAlertView_Width, _alertView_Height)];
         [_mainAlertView setCenter:self.center];
     }
     return _mainAlertView;
@@ -433,6 +522,7 @@
 
 - (UIView *)logoView {
     if (!_logoView) {
+        
         _logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KLogoView_Size, KLogoView_Size)];
     }
     return _logoView;
